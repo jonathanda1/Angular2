@@ -1,0 +1,30 @@
+<form id="form">
+  Username:<br>
+  <input id="username" type="text" name="username"><br>
+  Password:<br>
+  <input id="password" type="text" name="password"><br>
+  Stay Signed in
+  <input id="stay-signed-in" type="checkbox"> <br>
+  <br>
+  <input id="submit" type="submit" value="Login">
+</form>
+
+
+
+
+<script>
+
+if (window.localStorage.username) {
+  document.getElementById('form').innerHTML = "welcome " + window.localStorage.username
+}
+
+
+document.getElementById("form").addEventListener("submit",
+  function () {
+    if (document.getElementById('stay-signed-in').checked) {
+      window.localStorage.signedIn = true
+      window.localStorage.username = document.getElementById('username').value
+    }
+  })
+
+</script>

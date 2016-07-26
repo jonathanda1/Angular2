@@ -1,0 +1,12 @@
+<h1> Edit tweet </h1>
+
+<%= form_for @tweet do |f| %>
+  <div>
+    <%= f.text_field :text %>
+  </div>
+
+<%= f.submit "Update" %>
+
+<% end %>
+
+<%= link_to "Home", tweets_path %>

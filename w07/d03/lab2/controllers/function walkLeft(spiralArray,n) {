@@ -1,0 +1,11 @@
+function walkLeft(spiralArray,n) {
+  var newArray = [spiralArray,[]]
+  if (n = spiralArray[spiralArray.length - 1]) {
+    newArray[1].push(n,n+1)
+  } else {
+    console.log("nope")
+  }
+  return newArray
+}
+
+walkLeft( [1,2] , 3)

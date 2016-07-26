@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <%- include('partials/head') %>
+</head>
+<body>
+  <%- include('partials/header', {subHeading: 'Welcome'}) %>
+<script src="https://code.jquery.com/jquery-1.12.3.js" integrity="sha256-1XMpEtA4eKXNNpXcJ1pmMPs8JV+nwLdEqwiJeCQEkyc=" crossorigin="anonymous"></script>
+<script src='../public/js/main.js'></script>
+
+  <main>
+    <h3>Search <%= (Math.random() > 0.5) ? "Foursquare" : "Swarm" %></h3>
+    <form method="POST" action="/search">
+      <label for="query">Search for</label>
+      <input id="query" type="text" name="search[query]" placeholder=""/><br>
+      <label for="search">Place Name</label>
+      <input id="search" type="text" name="search[place]" placeholder="Cleveland, OH"/><br>
+      <!-- <label for="search2">Search For</label>
+      <input id="search2" type="text" name="search[for]" placeholder=""/> -->
+      <input id="searchButton" type="submit" value="Search" />
+    </form>
+    <div id="list">
+
+    </div>
+  </main>
+
+  <%- include('partials/scripts') %>
+</body>
+</html>

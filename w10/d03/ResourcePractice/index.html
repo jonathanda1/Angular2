@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!-- App declaration -->
+<html ng-app="ResourcePractice">
+
+<head>
+    <title>Resource Practice</title>
+</head>
+
+<!-- Controller declaration -->
+<body>
+
+  <div ng-controller="PostsController as post">
+
+    <div>
+
+    <h3> All Posts </h3>
+    {{ post.posts }}
+
+    <h3> First Post </h3>
+    {{ post.firstPost }}
+
+    </div>
+
+
+    </div>
+
+    <div ng-controller="UsersController as user">
+      <div>
+        <h3> All Users </h3>
+        {{user.users}}
+        <h3> First User </h3>
+        {{user.firstUser}}
+      </div>
+    </div>
+
+
+    <!-- AngularJS CDN, must come first -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-resource.js"></script>
+    <!-- Our Javascript files, app.js must be loaded first -->
+    <script src="js/app.js"></script>
+    <script src="js/services/PostResource.js"></script>
+    <script src="js/services/UserResource.js"></script>
+    <script src="js/controllers/UsersController.js"></script>
+    <script src="js/controllers/PostsController.js"></script>
+
+
+
+
+</body>
+
+</html>

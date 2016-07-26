@@ -1,0 +1,24 @@
+<h1>Edit this recipe!</h1>
+
+<%= form_for @recipe do |f| %>
+
+    <div>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+    </div>
+
+    <div>
+        <%= f.label :instructions %>
+        <%= f.text_field :instructions %>
+    </div>
+
+    <div>
+        <%= f.label :servings %>
+        <%= f.text_field :servings %>
+    </div>
+
+    <%= f.submit "Submit these changes!" %>
+
+<% end %>
+
+<%= link_to "Back to the list!", courses_path %>

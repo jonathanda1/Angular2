@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html ng-app = "hintApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Tilda's hints</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/skeleton.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body ng-controller="HintsController as hints" class="container">
+
+      <header>
+        <div class="row">
+          <img class="tilda-head three columns" src="http://i.imgur.com/Lk4GzwZ.jpg" alt="tilda">
+          <div class="nine columns">
+            <h1>Advice on this Chaotic Life <span class="sm-header-text">
+              from <a href="https://twitter.com/nottildaswinton">Tilda Swinton</a>
+            </span></h1>
+          </div>
+        </div>
+        <br>
+      </header>
+
+      <div class="image-here">
+        <h5 class="shade">You have <span ng-bind="hints.allHints.length"></span> hints to
+            incorporate into your chaotic life!</h5>
+        <form ng-submit="hints.addHint()">
+          <input ng-model="hints.newHint.wisdom" id="darken-text" class="shade" type="text" placeholder='But think...'>
+        </form>
+        <p class="shade" ng-if="hints.newHint.wisdom">About to incorporate hint:
+          <strong>{{hints.newHint.wisdom}}</strong>
+        </p>
+        <ul>
+        <!-- LOOP begins -->
+          <li class="hint shade" ng-repeat="hint in hints.allHints">
+            <!-- whichever hint returns incorporated as true will be affected by the ng-class -->
+            <span ng-class="{ incorporated : hint.incorporated }" ng-click= "hints.changeIncorporated(hint)">
+              {{hint.wisdom}}
+            </span>
+            <button class="destroy" ng-click="hints.remove(hint)">X</button>
+          </li>
+        <!-- LOOP ends -->
+        </ul>
+      </div>
+    <script src="js/angular.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/hints_controller.js"></script>
+
+  </body>
+</html>

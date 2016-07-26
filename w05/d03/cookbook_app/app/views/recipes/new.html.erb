@@ -1,0 +1,28 @@
+<h1>Add a new Recipe!</h1>
+
+<%= form_for @recipe do |f| %>
+
+    <div>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+    </div>
+
+    <div>
+        <%= f.label :instructions %>
+        <%= f.text_field :instructions %>
+    </div>
+
+    <div>
+        <%= f.label :servings %>
+        <%= f.text_field :servings %>
+    </div>
+
+    <div>
+        <%= f.label :course %>
+        <%= f.collection_select :course_id, Course.all, :id, :name %>
+    </div>
+    <%= f.submit "Add new recipe!" %>
+
+<% end %>
+
+<%= link_to "Back to the list!", recipes_path %>

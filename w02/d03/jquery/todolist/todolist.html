@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>todolist</title>
+</head>
+<body>
+<div id="container">
+
+
+
+ <div id="top">
+ <header> Items Remaining: </header>
+  <form>
+   <input type="new task">
+  </form>
+   <button id="add">Add</button>
+ </div>
+
+ <table id="table">
+  <tr id="categories">
+   <th>Description</th>
+   <th>Completed</th>
+   <th>Remove</th>
+  </tr>
+  <tr>
+    <td>Practice adding JS Event Handlers</td>
+    <td id="col1"><button id="completed"></button></td>
+    <td id="col1"><button id="removed"></button></td>
+  </tr>
+  <tr>
+    <td>Add elements to DOM</td>
+    <td id="col2"><button id="completed"></button></td>
+    <td id="col2"><button id="removed"></button></td>
+  </tr>
+  <tr>
+    <td>Remove Elements from the DOM</td>
+    <td id="col3"><button id="completed"></button></td>
+    <td id="col3"><button id="removed"></button></td>
+  </tr>
+  <tr>
+    <td>Update Text in the DOM</td>
+    <td></td>
+    <td></td>
+  </tr>
+ </table>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script src="js/todolist.js"></script>
+</body>
+</html>

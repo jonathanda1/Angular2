@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app="todoApp">
+	<head>
+		<meta charset="utf-8">
+		<title>To Do Or Not To Do</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <!-- new router script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.js"></script>
+    <!-- end new router script -->
+		<script src="js/app.js"></script>
+		<script src="js/TodosController.js"></script>
+		<link rel="stylesheet" href="css/style.css">
+	</head>
+
+	<body ng-controller="TodosController as todos">
+		<header>
+			<h1>YOU'VE GOT {{ todos.remainingTodos().length }} THINGS TO DO!</h1>
+			<h4>{{ todos.completedTodos().length }} things completed | {{ todos.remainingTodos().length }} things remaining</h4>
+		</header>
+    <nav class='tabs'>
+      <!-- ui-sref-active="active" .. you can style class active to make it look like page switching -->
+      <a ui-sref-active="active" ui-sref="home">My List</a>
+      <a ui-sref-active="active" ui-sref="archive">Archived</a>
+    </nav>
+		<main ui-view>
+    <!-- this is being displayed via state. it is dropped in by ui router based on url -->
+		</main>
+	</body>
+</html>

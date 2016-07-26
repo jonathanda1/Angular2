@@ -1,0 +1,43 @@
+<ul class="nav nav-pills">
+  <li role="presentation" class="active"><a href="/">Home</a></li>
+  <li role="presentation"><a href="/posts">Posts</a></li>
+  <li role="presentation"><a href="/posts/new">New Posts</a></li>
+</ul>
+
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Posts</h1>
+
+<div id='container-fluid'>
+
+<table class='table table-bordered'>
+  <thead>
+    <tr>
+      <th class='col-md-2'>Title</th>
+      <th class='col-md-6'>Content</th>
+      <th class='col-md-2'>Author</th>
+      <th class='col-md-2'>Published at</th>
+    </tr>
+  </thead>
+
+
+  <tbody>
+    <% @posts.each do |post| %>
+      <tr>
+        <td><%= post.title %></td>
+        <td><%= post.content %></td>
+        <td><%= post.author %></td>
+        <td><%= post.published_at %></td>
+        <td class='btn btn-info'><%= link_to 'Show', post %></td>
+        <td class='btn btn-primary'><%= link_to 'Edit', edit_post_path(post) %></td>
+        <td class='btn btn-danger'><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+</div>
+
+<br>
+
+<%= link_to 'New Post', new_post_path %>

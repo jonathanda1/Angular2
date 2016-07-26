@@ -1,0 +1,4 @@
+  <b>Heroes</b><br>
+  <hero-detail ng-repeat="currentHero in $ctrl.heroes" hero="currentHero"></hero-detail>
+  <!-- addNewHero is called in app.js line 49-->
+  <hero-form on-add-hero="$ctrl.addNewHero(newHero)"></hero-form>

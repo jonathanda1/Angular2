@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!-- App declaration -->
+<html ng-app="TheResourceLab">
+<head>
+    <title>Users</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.js"></script>
+</head>
+
+<!-- Controller declaration -->
+<body>
+
+ <section ng-controller="UsersController as users">
+
+    <div ng-repeat="user in users.users">
+
+      Name: {{user.name}}
+
+      Username: {{user.username}}
+
+      Address: {{user.address}}
+
+      <button ng-click="users.remove(user)">Delete</button>
+      <br>
+    </div>
+<hr>
+  <br>
+
+      <form ng-submit="users.addUser(users.newUser)">
+        <label>Name</label>
+        <input ng-model="users.newUser.name">
+      <br>
+        <label>Username</label>
+        <input ng-model="users.newUser.username">
+      <br>
+        <label>Address</label>
+        <input ng-model="users.newUser.address">
+      <br>
+        <input class="sub-button" type="submit" value="Add User">
+      </form>
+
+</section>
+
+
+    <!-- AngularJS CDN, must come first -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-resource.js"></script>
+    <!-- Our Javascript files, app.js must be loaded first -->
+    <script src="javascripts/app.js"></script>
+    <script src="javascripts/controllers/UsersController.js"></script>
+    <script src="javascripts/services/UserResource.js"></script>
+</body>
+</html>
+

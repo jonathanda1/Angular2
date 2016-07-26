@@ -1,0 +1,62 @@
+Npm install
+Bring in jsonwebtoken, mongoose-bcrypt, dotenv -- npm install
+
+
+Backend
+  1. Go into server.js
+    - add 3 middleware functions
+       1. Allow Cors in the dev environment
+       2. Validate that incoming request content-type is JSON
+       3. Add Failed Auth Header, handles 401 unauthorized.
+          - This tells user they need the token
+
+  2. Bring in token_auth.js, all functionality for generating and validating JWTs
+    - COPY PASTE file
+    - change extractPayload to look like how you want it to
+    - add TOKEN_SECRET to your .env file
+    - require token_auth.js in routes so you can use it as middleware
+
+  3. Bring in controllers/users.js
+    - Change findOne in me function to use field from payload you defined above (in token_auth.js) that you need to. You iwll probably also have to add an update, delete?
+      - These are the params that you change in the extractPayload
+
+  4. Bring in models/user.js
+    - Change schema to reflect how you want to store users
+      ex. paramaters/ info you want from the user
+
+  5. Change your routes file
+    - Require token_auth
+      - Add token.authenticate as middleware to any route you want authorized.
+      - Bring in routes for sign-up, and getting a token
+
+
+Frontend
+  1. Import jwt-decode script, make sure you bring it in before angular.
+    - Copy jwt-decode.2.0.1.js (probably put in a vendor folder, outside of js)
+
+  2. Bring in config files (These are the files tha tadd necessary headers to every request and deal with 401s) -- copy paste from config folder in the auth lesson example
+    - app.debug.js
+    - app.httpInterceptors.js (this is what adds everything to your module)
+    - authErrorRedirect.service.js (this handles 401s gracefully)
+        - Oh we don't have a token, so you need to sign in -- tells user on the frontend by redirecting to sign in page
+    - jsonHeaders.service.js (this adds content-type header)
+    - tokenSigning.service.js (this adds the token to header)
+    - Make sure you change app name and import files
+
+  3. Bring in auth services
+    - auth.service.js (handles logIn, logOut, etc)
+    - token.service.js (handles token and localStorage)
+    - change TOKEN_KEY to something that makes sense for your app
+      - something unique but relevant to your app
+    - user.service.js (this handles actually creating a user)
+
+  4. Add frontend routes for sign up and sign in (states)
+    - Bring in signin.controller.js
+      - Make any changes necessary
+        ex. $state.go
+
+  5. Bring in or look at navbar.controller.js and index.html to see how isLoggedIn is used
+    - view navbar in index.html to see how the navbar works i.e showing log in when logged out and logout when logged in
+
+
+

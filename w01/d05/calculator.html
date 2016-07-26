@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+   <meta charset="UTF-8">
+   <title>Calculator</title>
+   <link rel="stylesheet" href="css/main.css">
+   <script src="js/calculator.js"></script>
+</head>
+
+
+<body>
+
+<div id='elem'>An element</div>
+
+
+<!-- Above we attached a function to 'An element' that will fire when a user clicks on it   -->
+<!-- Below, attach an event handler,   -->
+<input  name= "screen" id='screen' type="text" value=" ">
+
+
+<div id='3'>
+  <input  id='button' type="button" value="7" onclick="screenChange(7)">
+  <input  id='button' type="button" value="8" onclick="screenChange(8)">
+  <input  id='button' type="button" value="9" onclick="screenChange(9)">
+  <input  id='button' type="button" value="+" onclick="screenChange("+")">
+</div>
+<div id='2'>
+  <input  id='button' type="button" value="4" onclick="screenChange(4)">
+  <input  id='button' type="button" value="5" onclick="screenChange(5)">
+  <input  id='button' type="button" value="6" onclick="screenChange(6)">
+  <input  id='button' type="button" value="-" onclick="screenChange("-")">
+</div>
+<div id='1'>
+  <input  id='button' type="button" value="1" onclick="screenChange(1)">
+  <input  id='button' type="button" value="2" onclick="screenChange(2)">
+  <input  id='button' type="button" value="3" onclick="screenChange(3)">
+  <input  id='button' type="button" value="*" onclick="screenChange("*")">
+</div>
+<div id='0'>
+  <input  id='button' type="button" value="0" onclick="screenChange(0)">
+  <input  id='button' type="button" value="." onclick="screenChange(".")">
+  <input  id='button' type="button" value="/" onclick="screenChange("/")">
+  <input  id='button' type="button" value="=" onclick="screenChange("=")">
+</div>
+
+
+
+
+
+<script>
+
+var string = ""
+
+function equals() {
+  eval(string);
+}
+
+function plus() {
+  string = string " + " string;
+}
+
+function minus() {
+  string " - " string;
+}
+
+function multiply() {
+  string " * " string;
+}
+
+
+
+
+function screenChange(x){
+
+ document.getElementById("screen").value=x
+}
+
+
+//we get a hold of an element using its 'id' attribute
+var el  = document.getElementById('elem');
+var target = document.getElementById('target');
+
+
+   //we add a click function that will fire when a user clicks on the element
+   el.addEventListener('click',function(){
+
+       target.setAttribute('value', el.innerHTML);
+   });
+
+
+
+</script>
+</body>
+</html>

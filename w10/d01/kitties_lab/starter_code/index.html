@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html ng-app="KittyLab">
+	<head>
+
+		<title>Kitties App!</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+  </head>
+
+	<body>
+    <div id="container">
+      <div ng-controller="KittiesController as kitties">
+        <div class= 'col-lg- 4' ng-repeat="kitty in kitties.allKitties">
+          <div id="kitty">
+            Hi, my name is {{kitty.catName}}.
+            <br>
+            I am {{kitty.monthsOld}} months old.
+            <br>
+            I am a {{kitty.gender}}.
+            <br>
+            <img ng-src = "{{kitty.image}}">
+          </div>
+          <button class="destroy" ng-click="kitties.remove(kitty)">Delete {{kitty.catName}}</button>
+        </div>
+
+        <form id="submit" ng-submit="kitties.addKitty()">
+          <input ng-model="kitties.newKitty.catName" type="text" placeholder="Kitty name">
+          <input ng-model="kitties.newKitty.monthsOld" type="text" placeholder="Kitty age">
+          <input ng-model="kitties.newKitty.gender" type="text" placeholder="Kitty Gender">
+        </form>
+
+      </div>
+    </div>
+
+
+
+
+    <script src=js/angular.min.js></script>
+    <script src=js/app.js></script>
+    <script src=js/controllers/KittiesController.js></script>
+
+
+
+	</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AJAX</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>AJAX</h1>
+    <div id="chats"></div>
+      <div id="chat1">
+      <form input="text"></form>
+      </div>
+      <div id="chat2">
+      <form input="text"></form>
+      </div>
+
+
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+    <script>
+    // AJAX goes here
+     $.ajax({
+    method: "GET",
+    url: "chats/1",
+ }).done(function(chat) {
+    $("#chat1").html(chat.body)
+ })
+
+  $.ajax({
+    method: "GET",
+    url: "chats/2",
+ }).done(function(chat) {
+    $("#chat2").html(chat.body)
+ })
+
+ $.get("/chats/1").done(function (chat) {
+    $(#chats).append("<div class='chat'>" + chat.body + "</div>")
+ })
+
+
+// HOW TO SET UP SIMPLE CHAT
+// setInterval(function () {
+//   $.get("chats/latest").done(chatHandler)
+// },1000)
+// $.get("chats/1").done(chatHandler)
+// $.get("chats/2").done(chatHandler)
+
+// //function chatHandler (chat) {
+//   $("#chats").append(("<div class='chat'>" + chat.body + "</div>")
+//  }))
+// }
+
+
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!-- App declaration -->
+<html ng-app="ServicePractice">
+
+<head>
+    <title>Service Practice</title>
+</head>
+
+<!-- Controller declaration -->
+<body>
+<div ng-controller = "AjaxController as ajax">
+  <input ng-model="ajax.query" type="text">
+  <button ng-click="ajax.search()">search</button>
+  <div>{{ajax.result}}</div>
+</div>
+
+<br>
+
+<div ng-controller = "CountdownController as countdown">
+  <div>
+  {{countdown.time}}
+  </div>
+</div>
+
+
+
+    <!-- AngularJS CDN, must come first -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.js"></script>
+    <!-- Our Javascript files, app.js must be loaded first -->
+    <script src="js/app.js"></script>
+    <script src="js/controllers/AjaxController.js"></script>
+    <script src="js/controllers/CountdownController.js"></script>
+    <script src="js/services/MathService.js"></script>
+    <script src="js/services/OpenWeather.js"></script>
+
+
+</body>
+
+</html>
